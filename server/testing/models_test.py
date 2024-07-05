@@ -36,6 +36,8 @@ class TestAuthor:
             
             with pytest.raises(ValueError):
                 author_b = Author(name = 'Ben', phone_number = '1231144321')
+                db.session.add(author_b)
+                db.session.commit()
                 
             db.session.query(Author).delete()
             db.session.commit()
